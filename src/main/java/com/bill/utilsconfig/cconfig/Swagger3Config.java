@@ -1,30 +1,30 @@
-package com.bill.utilsconfig.Config;
+package com.bill.utilsconfig.cconfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.oas.annotations.EnableOpenApi;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
- * Swagger 2.x 配置类
+ * Swagger 3.x 配置类
  * @author Bill
  */
 
 @Configuration
-@EnableSwagger2
-public class Swagger2Config {
-    //配置Swagger的实例Bean
+@EnableOpenApi
+public class Swagger3Config {
+    //配置Swagger3的实例Bean
     @Bean
-    public Docket docketApi2(){
+    public Docket docketApi3(){
         Contact contact = new Contact("", "", "");
         ApiInfo apiInfo = new ApiInfo("CustomTitle",
                 "CustomDescription",
@@ -34,11 +34,11 @@ public class Swagger2Config {
                 "Apache 2.0",
                 "http://www.apache.org/licenses/LICENSE-2.0",
                 new ArrayList<>());
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.OAS_30)
                 //配置页面详情信息
                 .apiInfo(apiInfo)
                 //控制开关
-                .enable(false)
+                .enable(true)
 
                 .select()
                 //配置接口扫描方式：全部
@@ -79,3 +79,4 @@ public class Swagger2Config {
                 Collections.singleton(new SecurityReference("Authorization", authorizationScopes)));
     }
 }
+

@@ -19,6 +19,7 @@
         <lombok.version>1.18.26</lombok.version>
         <swagger3.version>3.0.0</swagger3.version>
         <shiro.version>1.12.0</shiro.version>
+        <fastjson.version>2.0.16</fastjson.version>
     </properties>
     <dependencies>
         <dependency>
@@ -53,6 +54,12 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring-boot-starter</artifactId>
             <version>${shiro.version}</version>
+        </dependency>
+        <!-- JSON支持 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <dependency>
